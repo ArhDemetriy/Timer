@@ -2,9 +2,13 @@
   "name": "timer",
   "version": "1.0.0",
   "description": "",
-  "main": "src/pages/index/index.pug",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cleanDist":"rm -rf dist/*",
+    "cleanCashe": "rm -rf .parcel-cache/*",
+    "runParcel": "parcel src/pages/index/index.pug",
+    "dev": "npm run cleanDist && npm run cleanCashe && npm run runParcel"
+
   },
   "repository": {
     "type": "git",

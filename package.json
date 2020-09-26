@@ -2,7 +2,7 @@
   "name": "timer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/pages/index/index.pug",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/ArhDemetriy/Timer/issues"
   },
-  "homepage": "https://github.com/ArhDemetriy/Timer#readme"
+  "homepage": "https://github.com/ArhDemetriy/Timer#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "pug": "^3.0.0",
+    "sass": "^1.26.11"
+  }
 }

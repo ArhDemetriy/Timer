@@ -3,3 +3,7 @@
 *.sass.map
 *.scss.map
 *.code-workspace
+package-lock.json
+.parcel-cache/
+node_modules/
+dist/

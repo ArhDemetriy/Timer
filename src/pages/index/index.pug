@@ -1,0 +1,11 @@
+extends ../base/base.pug
+include ../../components/timer/timer.pug
+
+append styles
+  link(rel='stylesheet', href='index.scss')
+
+append header
+block title
+  title='Timers'
+append main
+  +timer()

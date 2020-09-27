@@ -1,5 +1,6 @@
 extends ../base/base.pug
 include ../../components/timer/timer.pug
+include ../../components/adder/adder.pug
 
 append styles
   link(rel='stylesheet', href='index.scss')
@@ -8,4 +9,7 @@ append header
 block title
   title='Timers'
 append main
-  +timer()
+  .main
+    +timer()
+    +timer({mod:'active'})
+    +adder()

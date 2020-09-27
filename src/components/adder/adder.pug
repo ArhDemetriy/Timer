@@ -1,0 +1,17 @@
+append styles
+  link(rel='stylesheet', href='../../components/adder/adder.scss')
+append skripts
+  script(type='module', src='../../components/adder/adder.js')
+
+append mixins
+  mixin adder(options = {})
+    -
+      options.class = options.class ? `adder ${options.class}` : `adder `;
+      const mod = options.mod ? options.mod.trim().split(/[,\s]\s*/) : [];
+      options.class += options.mod ? ` adder-${mod.join(` adder-`)} ` : '';
+      delete options.mod;
+      options.class += options.block_class ? ` ${options.block_class} ` : '';
+      const block_class = options.block_class ? `${options.block_class}` : `adder`;
+      delete options.block_class;
+
+    button()&attributes(options)&attributes(attributes)='+'

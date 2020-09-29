@@ -16,10 +16,10 @@ class Timer implements iDestructible{
 
   private readonly buttonPlayPauseToggle: Element;
   private readonly buttonStop: Element;
+  private readonly outputElement: Element | HTMLInputElement;
+  private readonly bindedPlayPauseToggle = this.playPauseToggle.bind(this);
+  private readonly bindedStop = this.stop.bind(this);
   constructor(element: Element) {
-    if (!element.querySelector('.timer__input')) throw new ReferenceError(
-      `not elem ".timer__input" in tag: ${element.tagName} class: ${element.classList.toString}`);
-
     let temp = element.querySelector('.timer__button-play_pause');
     if (!temp) throw new ReferenceError(
       `not elem ".timer__button-play_pause" in tag: ${element.tagName} class: ${element.classList.toString}`);
@@ -29,54 +29,62 @@ class Timer implements iDestructible{
     if (!temp) throw new ReferenceError(
       `not elem ".timer__button-stop" in tag: ${element.tagName} class: ${element.classList.toString}`);
     this.buttonStop = temp;
+
+    temp = element.querySelector('.timer__input');
+    if (!temp) throw new ReferenceError(
+      `not elem ".timer__input" in tag: ${element.tagName} class: ${element.classList.toString}`);
+    this.outputElement = temp;
+
     this.selfElement = element;
     this.countedTime = new Date(0);
     this.lastStartTime = new Date();
     this.isActive = false;
     this.idInterval = null;
 
-    this.buttonPlayPauseToggle.addEventListener('click', this.playPauseToggle);
-    this.buttonStop.addEventListener('click', this.stop);
+    this.buttonPlayPauseToggle.addEventListener('click', this.bindedPlayPauseToggle);
+    this.buttonStop.addEventListener('click', this.bindedStop);
   }
   protected play() {
     if (!isNaN(this.idInterval!))
       clearInterval(this.idInterval!);
-    this.lastStartTime.setTime(this.countedTime.getTime() + Date.now());
+    this.lastStartTime.setTime(Date.now());
     this.isActive = true;
     this.idInterval = setInterval(this.tick.bind(this), 1000);
+    setTimeout((() => this.selfElement.classList.add('timer-active')).bind(this), 0);
   }
   protected pause() {
     this.isActive = false;
     this.countedTime.setTime(Date.now() - this.lastStartTime.getTime() + this.countedTime.getTime());
     if (!isNaN(this.idInterval!))
       clearInterval(this.idInterval!);
+    setTimeout((() => this.selfElement.classList.remove('timer-active')).bind(this), 0);
   }
   private tick() {
     let lengthTime = Date.now();
-
     if (!this.isActive) return;
-    const element = this.selfElement.querySelector('.timer__input');
-    if (!element) return;
 
-    lengthTime -= this.lastStartTime.getTime();
-
-    let temp = Math.trunc((lengthTime % this.MIN) / this.SEC);
-    let lengthTimeStr = temp.toString().padStart(2, '0');
-    if (lengthTime / this.MIN >= 1) {
-      lengthTime -= temp;
-      temp = Math.trunc((lengthTime % this.HOU) / this.MIN);
-      lengthTimeStr = temp.toString().padStart(2, '0') + ':' + lengthTimeStr;
-      if (lengthTime / this.HOU >= 1) {
+    setTimeout((() => {
+      lengthTime += this.countedTime.getTime() - this.lastStartTime.getTime();
+      let temp = Math.trunc((lengthTime % this.MIN) / this.SEC);
+      let lengthTimeStr = temp.toString().padStart(2, '0');
+      if (lengthTime / this.MIN >= 1) {
         lengthTime -= temp;
-        temp = Math.trunc(lengthTime / this.HOU);
+        temp = Math.trunc((lengthTime % this.HOU) / this.MIN);
         lengthTimeStr = temp.toString().padStart(2, '0') + ':' + lengthTimeStr;
+        if (lengthTime / this.HOU >= 1) {
+          lengthTime -= temp;
+          temp = Math.trunc(lengthTime / this.HOU);
+          lengthTimeStr = temp.toString().padStart(2, '0') + ':' + lengthTimeStr;
+        }
       }
-    }
-
-    if (element.hasOwnProperty('value'))
-      (element as HTMLInputElement).value = lengthTimeStr
+      setTimeout(this.render.bind(this), 0, lengthTimeStr);
+    }).bind(this), 0);
+  }
+  private render(time: string = '00') {
+    if ('value' in this.outputElement)
+      this.outputElement.value = time
     else
-      element.textContent = lengthTimeStr;
+      this.outputElement.textContent = time;
   }
   playPauseToggle() {
     if (this.isActive)
@@ -89,11 +97,13 @@ class Timer implements iDestructible{
     if (!isNaN(this.idInterval!))
       clearInterval(this.idInterval!);
     this.countedTime.setTime(0);
+    setTimeout((() => this.selfElement.classList.remove('timer-active')).bind(this), 0);
+    setTimeout(this.render.bind(this), 0, '00');
   }
   destruct() {
     this.stop();
-    this.buttonPlayPauseToggle.removeEventListener('click', this.playPauseToggle);
-    this.buttonStop.removeEventListener('click', this.stop);
+    this.buttonPlayPauseToggle.addEventListener('click', this.bindedPlayPauseToggle);
+    this.buttonStop.addEventListener('click', this.bindedStop);
   }
 }
 

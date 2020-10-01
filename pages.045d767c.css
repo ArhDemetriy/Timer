@@ -1,4 +1,4 @@
-.main{
+.main {
   --column_count: 1;
   display: grid;
   grid-template-columns: repeat(var(--column_count, 10), 22.5rem);
@@ -6,8 +6,9 @@
   margin: 7.2rem auto 0 auto;
   width: max-content;
 }
+
 @media (min-width: 768px) and (max-width: 1023px) {
-  .main{
+  .main {
     --column_count: 2;
   }
 }
@@ -16,3 +17,4 @@
     --column_count: 3;
   }
 }
+/*# sourceMappingURL=pages.045d767c.css.map */

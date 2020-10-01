@@ -22,6 +22,7 @@
   min-height: 12rem;
   background-color: var(--color-secondary, red);
   &__input{
+    font-family: 'Gotham Pro';
     text-align: center;
     flex-grow: 1;
     box-sizing: border-box;

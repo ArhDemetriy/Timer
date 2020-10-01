@@ -7,7 +7,7 @@
     "cleanDist":"rm -rf dist/*",
     "cleanCashe": "rm -rf .parcel-cache/*",
     "runParcel": "parcel src/pages/index/index.pug",
-    "dev": "npm run cleanDist && npm run cleanCashe && npm run runParcel"
+    "dev": "npm run cleanCashe && npm run runParcel"
 
   },
   "repository": {

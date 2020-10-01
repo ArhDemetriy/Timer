@@ -1,2 +1,13 @@
-document.querySelectorAll('.adder').forEach(q =>
-  q.addEventListener('click',()=>console.log('test messeg add new timer')));
+import Vue from 'vue'
+
+let app = new Vue({
+  el: '#adder',
+  data: {
+    message: 'Привет, Vue.js!'
+  },
+  methods: {
+    adder__add: function () {
+      alert('fjdrtfdgg');
+    },
+  },
+});

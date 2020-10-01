@@ -1,16 +1,2 @@
-.adder {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  width: 22.5rem;
-  min-height: 12rem;
-  background-color: var(--color-secondary, red);
-  color: var(--color-main, red);
-  font-size: 3.5rem;
-}
-/*# sourceMappingURL=adder.f0845cc9.css.map */
+.adder{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;outline:none;border:none;box-shadow:none;width:22.5rem;min-height:12rem;background-color:var(--color-secondary,red);color:var(--color-main,red);font-size:3.5rem}
+/*# sourceMappingURL=adder.6af53659.css.map */

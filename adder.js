@@ -1,3 +1,2 @@
-// ASSET: C:\Development\Projects\Timer\src\components\adder\adder.ts
-document.querySelectorAll('.adder').forEach(q => q.addEventListener('click', () => console.log('test messeg add new timer')));
-//# sourceMappingURL=adder.8d707ee4.js.map
+document.querySelectorAll(".adder").forEach(e=>e.addEventListener("click",()=>console.log("test messeg add new timer")));
+//# sourceMappingURL=adder.e5a74d3d.js.map

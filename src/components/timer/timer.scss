@@ -51,4 +51,11 @@
   &-active{
     --color-main: white;
   }
+  &__button-play_pause::after {
+    content: 'play_arrow';
+  }
+  &-active &__button-play_pause::after {
+    content: 'pause';
+  }
+
 }

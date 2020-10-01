@@ -6,9 +6,10 @@
   "scripts": {
     "cleanDist":"rm -rf dist/*",
     "cleanCashe": "rm -rf .parcel-cache/*",
-    "runParcel": "parcel src/pages/index/index.pug",
-    "dev": "npm run cleanCashe && npm run runParcel"
-
+    "runParcel": "parcel 'src/pages/index/index.pug'",
+    "buildParcel": "parcel build src/pages/index/index.pug --no-minify --public-url /",
+    "dev": "npm run cleanCashe && npm run runParcel",
+    "build": "npm run cleanCashe && npm run buildParcel"
   },
   "repository": {
     "type": "git",

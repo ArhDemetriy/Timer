@@ -114,7 +114,7 @@ export default class Timer implements iDestructible, iTimer, iTimerToggleble, iT
   }
   destruct() {
     this.stop();
-    this.buttonPlayPauseToggle.addEventListener('click', this.bindedPlayPauseToggle);
-    this.buttonStop.addEventListener('click', this.bindedStop);
+    this.buttonPlayPauseToggle.removeEventListener('click', this.bindedPlayPauseToggle);
+    this.buttonStop.removeEventListener('click', this.bindedStop);
   }
 }

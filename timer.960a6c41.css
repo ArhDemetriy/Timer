@@ -45,4 +45,10 @@
 .timer-active {
   --color-main: white;
 }
-/*# sourceMappingURL=timer.3fe21855.css.map */
+.timer__button-play_pause::after {
+  content: "play_arrow";
+}
+.timer-active .timer__button-play_pause::after {
+  content: "pause";
+}
+/*# sourceMappingURL=timer.960a6c41.css.map */

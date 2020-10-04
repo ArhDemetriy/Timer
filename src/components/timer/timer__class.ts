@@ -15,7 +15,7 @@ interface iTimerPauseble extends iTimer {
 }
 type ArrayOfDestructible = [() => void, ...Array<iDestructible>];
 
-export default class Timer implements iDestructible, iTimer, iTimerToggleble, iTimerPauseble{
+export class Timer implements iDestructible, iTimer, iTimerToggleble, iTimerPauseble{
   protected readonly SEC = 1000;
   protected readonly MIN = 60 * this.SEC;
   protected readonly HOU = 60 * this.MIN;

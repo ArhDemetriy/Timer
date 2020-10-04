@@ -1,7 +1,6 @@
-import Timer from './timer__class';
-import * as timerInterfaces from './timer__class';
+import { Timer, ArrayOfDestructible } from './timer__class';
 
-const arrayOfDestructible: timerInterfaces.ArrayOfDestructible = [
+const arrayOfDestructible: ArrayOfDestructible = [
   function qwe(this:any) {
     for (let i = 1; i < this.length; this[i++].destruct()) { }
   },

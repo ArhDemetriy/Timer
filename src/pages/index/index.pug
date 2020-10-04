@@ -10,6 +10,7 @@ block title
   title='Timers'
 append main
   .main
-    +timer()
-    +timer()
-    +adder()
+    //- +timer()
+    +adder({id: 'adder'})
+    template(id='timerTemplate')
+      +timer()

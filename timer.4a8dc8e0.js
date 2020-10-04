@@ -14,7 +14,7 @@ function $eb1bb9566f3f431d28f6bbc25948e$var$_defineProperty(obj, key, value) {
   return obj;
 }
 
-class $eb1bb9566f3f431d28f6bbc25948e$export$default {
+class $eb1bb9566f3f431d28f6bbc25948e$export$Timer {
   constructor(element) {
     $eb1bb9566f3f431d28f6bbc25948e$var$_defineProperty(this, "SEC", 1000);
     $eb1bb9566f3f431d28f6bbc25948e$var$_defineProperty(this, "MIN", 60 * this.SEC);
@@ -102,9 +102,9 @@ class $eb1bb9566f3f431d28f6bbc25948e$export$default {
 
 }
 
-const $e5791784bcec78b3262f83ee0a8a600$var$arrayOfDestructible = [function () {
+const $e5791784bcec78b3262f83ee0a8a600$var$arrayOfDestructible = [function qwe() {
   for (let i = 1; i < this.length; this[i++].destruct()) {}
 }];
-document.q = $e5791784bcec78b3262f83ee0a8a600$var$arrayOfDestructible;
-document.querySelectorAll('.timer').forEach(q => $e5791784bcec78b3262f83ee0a8a600$var$arrayOfDestructible.push(q.myTimer = new $eb1bb9566f3f431d28f6bbc25948e$export$default(q)));
-//# sourceMappingURL=timer.20a51de0.js.map
+document.arrayOfTimer = $e5791784bcec78b3262f83ee0a8a600$var$arrayOfDestructible;
+document.Timer = $eb1bb9566f3f431d28f6bbc25948e$export$Timer; // document.querySelectorAll('.timer').forEach(q => arrayOfDestructible.push((q as any).myTimer = new Timer(q)));
+//# sourceMappingURL=timer.4a8dc8e0.js.map

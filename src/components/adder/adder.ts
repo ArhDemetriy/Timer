@@ -16,10 +16,29 @@ class AdderTimer implements iDestructible{
     const newTimer = this.selfElement.previousElementSibling;
     if (!newTimer)
       throw new ReferenceError(`вероятно не получилось создать новый таймер, т.к. он отсутсвует перед tag: ${this.selfElement.tagName} class: ${this.selfElement.classList.toString}`);
-    (newTimer as any).myTimer = new Timer(newTimer);
+    // (newTimer as any).myTimer = new Timer(newTimer);
   }
   destruct() {
     this.selfElement.removeEventListener('click', this.bindedAddNewTimer);
   }
 }
 document.querySelectorAll('.adder').forEach(q => (q as any).addTimer = new AdderTimer(q));
+
+import Vue from 'vue';
+
+const vm = new Vue({
+  data: {
+    myTimer: undefined,
+  },
+  methods: { newTimer: Timer },
+  mounted: function () {
+    this.$nextTick(function () {
+      this.$data.myTimer = new Timer(this.$el)
+      console.log(this.$data.myTimer);
+    })
+  },
+})
+// console.log(vm.$data.a);
+
+
+

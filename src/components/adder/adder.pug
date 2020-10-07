@@ -14,4 +14,4 @@ append mixins
       const block_class = options.block_class ? `${options.block_class}` : `adder`;
       delete options.block_class;
 
-    button(class='material-icons')&attributes(options)&attributes(attributes)='add'
+    button(class='material-icons','v-on:click'='adder__add', id='adder')&attributes(options)&attributes(attributes)='add'

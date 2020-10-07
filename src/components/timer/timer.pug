@@ -15,7 +15,7 @@ append mixins
       const block_class = options.block_class ? `${options.block_class}` : `timer`;
       delete options.block_class;
 
-    lable()&attributes(options)&attributes(attributes)
+    label(v-bind:myTimer="qwe")&attributes(options)&attributes(attributes)
       input.timer__input(type='text', readonly, value ='00')
       hr.timer__line
       .timer__buttons_container

@@ -2,15 +2,19 @@ extends ../base/base.pug
 include ../../components/timer/timer.pug
 include ../../components/adder/adder.pug
 
+append skripts
+  script(type='module', src='index.js')
+
 append styles
   link(rel='stylesheet', href='index.scss')
+
 
 append header
 block title
   title='Timers'
 append main
   .main
-    //- +timer()
-    +adder({id: 'adder'})
-    template(id='timerTemplate')
-      +timer()
+  //-   //- +timer()
+  //-   +adder({id: 'adder'})
+  //-   template(id='timerTemplate')
+  //-     +timer()

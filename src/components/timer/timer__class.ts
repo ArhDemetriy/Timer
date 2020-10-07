@@ -1,7 +1,7 @@
 export { iDestructible, iTimer, iTimerToggleble, iTimerPauseble, ArrayOfDestructible }
 
 interface iDestructible {
-  destruct: () => void;
+  destroy: () => void;
 }
 interface iTimer {
   play(): void;
@@ -112,7 +112,7 @@ export class Timer implements iDestructible, iTimer, iTimerToggleble, iTimerPaus
     setTimeout((() => this.selfElement.classList.remove('timer-active')).bind(this), 0);
     setTimeout(this.render.bind(this), 0, '00');
   }
-  destruct() {
+  destroy() {
     this.stop();
     this.buttonPlayPauseToggle.removeEventListener('click', this.bindedPlayPauseToggle);
     this.buttonStop.removeEventListener('click', this.bindedStop);

@@ -1,4 +1,10 @@
 import Vue from 'vue';
-import App from './index1.vue';
+import App from './index.vue';
 
-new Vue({ render: createElement => createElement(App) }).$mount('#app');
+Vue.config.productionTip = false;
+
+new Vue({
+  el: '.main',
+  template: '<App/>',
+  components: { App }
+});

@@ -4,7 +4,7 @@ import { Timer, ArrayOfDestructible, iDestructible } from './timer__class';
 const arrayOfDestructible: ArrayOfDestructible = [
   function qwe(this:iDestructible[]) {
     let q = this[0];
-    for (let i = 1; i < this.length; this[i++].destruct()) { }
+    for (let i = 1; i < this.length; this[i++].destroy()) { }
   },
 ];
 

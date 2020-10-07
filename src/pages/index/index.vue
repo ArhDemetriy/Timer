@@ -1,7 +1,8 @@
 <template lang='pug'>
-.main(id='app')
-  Timer(v-for="timer in timers", :key="timer.id", :timer="timer")
-  Adder(@click='addTimer')
+.main
+  Timer(v-for="id in timers", :key="id.id", :id="id")
+  Adder(@click.native='addTimer')
+
 </template>
 
 <script>
@@ -17,16 +18,18 @@ export default {
   },
   data() {
     return {
-      timers: [],
+      timers: [
+      ],
     };
   },
   methods: {
     addTimer() {
       this.timers.push({
-        id: nextTodoId++,
+        id: nextTimerId++,
       });
     },
-    removeTimer(idToRemove) {},
+    removeTimer(idToRemove) {
+    },
   },
 };
 </script>
